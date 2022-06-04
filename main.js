@@ -1,13 +1,13 @@
 const area = document.getElementById('area');
 let move = 0;
 let result = '';
-const contentWrapper = document.getElementById('content')
-const modalResult = document.getElementById('modal-result-wrapper')
-const overlay = document.getElementById('overlay')
-const btnСlose = document.getElementById('btn-close')
+const contentWrapper = document.getElementById('content');
+const modalResult = document.getElementById('modal-result-wrapper');
+const overlay = document.getElementById('overlay');
+const btnСlose = document.getElementById('btn-close');
 
 area.addEventListener('click', e => {
-    if(e.target.className = 'box') {
+    if(e.target.className == 'box') {
         move % 2 === 0 ? e.target.innerHTML = 'X' : e.target.innerHTML = "0";
         move++
         check(); 
@@ -30,23 +30,26 @@ const check = () => {
         if(
             boxes[arr[i][0]].innerHTML == 'X' && boxes[arr[i][1]].innerHTML == 'X' && boxes[arr[i][2]].innerHTML == 'X'
         ) {
-            result = 'крестики'
+            result = 'крестики';
+            prepareResult(result);
         } else if (
             boxes[arr[i][0]].innerHTML == '0' && boxes[arr[i][1]].innerHTML == '0' && boxes[arr[i][2]].innerHTML == '0'
         ) {  
-            result = 'нолики'
+            result = 'нолики';
+            prepareResult(result);
         }
     }
 }
 
 const prepareResult = winner => {
-    contentWrapper.innerHTML = 'Победили ${winner} !';
+    contentWrapper.innerHTML = `Победили ${winner} !`;
     modalResult.style.display = 'block';
 }
+
 const closeModal  = () => {
-    modalResult.style.display = 'none'
+    modalResult.style.display = 'none';
     location.reload();
 }
 
-overlay.addEventListener ('click', closeModal);
-btnСlose.addEventListener ('click', closeModal);
+overlay.addEventListener('click', closeModal);
+btnСlose.addEventListener('click', closeModal);
