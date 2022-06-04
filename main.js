@@ -41,15 +41,15 @@ const check = () => {
     }
 }
 
-const prepareResult = winner => {
+const prepareResult = winner => { // не работает
     contentWrapper.innerHTML = `Победили ${winner} !`;
     modalResult.style.display = 'block';
 }
 
-const closeModal  = () => {
+const closeModal  = () => { // не работает
     modalResult.style.display = 'none';
     location.reload();
 }
 
-overlay.addEventListener('click', closeModal);
-btnСlose.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal); // не работает
+btnСlose.addEventListener('click', closeModal); // не работает
